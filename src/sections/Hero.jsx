@@ -5,7 +5,7 @@ function Hero() {
     return (
         <section style={styles.section} id="about">
             <div className="container" style={styles.container}>
-                <h1 style={styles.heading}>Ahoj, ja som {personalInfo.name} 👋</h1>
+                <h1 style={styles.heading}>Ahoj,som {personalInfo.name} 👋</h1>
                 <h2 style={styles.subheading}>Študent informatiky</h2>
                 <p style={styles.bio}>{personalInfo.about}</p>
 
