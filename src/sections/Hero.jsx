@@ -5,16 +5,16 @@ function Hero() {
     return (
         <section style={styles.section} id="about">
             <div className="container" style={styles.container}>
-                <h1 style={styles.heading}>Ahoj,som {personalInfo.name} 👋</h1>
+                <h1 style={styles.heading}>Ahoj, som {personalInfo.name} 👋</h1>
                 <h2 style={styles.subheading}>Študent informatiky</h2>
                 <p style={styles.bio}>{personalInfo.about}</p>
 
                 <div style={styles.contact}>
                     <a href={`mailto:${personalInfo.email}`} style={styles.link}>
-                        📧 Napíš mi
+                         Napíš mi
                     </a>
                     <a href={`tel:${personalInfo.phone}`} style={styles.link}>
-                        📱 {personalInfo.phone}
+                         {personalInfo.phone}
                     </a>
                 </div>
             </div>

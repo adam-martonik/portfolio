@@ -10,7 +10,7 @@ function Skills() {
 
                     {/* Zručnosti - Programovanie */}
                     <div style={styles.card}>
-                        <h3 style={styles.cardTitle}>💻 Programovanie</h3>
+                        <h3 style={styles.cardTitle}> Programovanie</h3>
                         <div style={styles.tags}>
                             {skills.programming.map((skill, index) => (
                                 <span key={index} style={styles.tag}>{skill}</span>
@@ -20,7 +20,7 @@ function Skills() {
 
                     {/* Zručnosti - Technológie */}
                     <div style={styles.card}>
-                        <h3 style={styles.cardTitle}>⚙️ Technológie</h3>
+                        <h3 style={styles.cardTitle}> Technológie</h3>
                         <div style={styles.tags}>
                             {skills.technologies.map((tech, index) => (
                                 <span key={index} style={styles.tag}>{tech}</span>
@@ -30,7 +30,7 @@ function Skills() {
 
                     {/* Zručnosti - Koncepty */}
                     <div style={styles.card}>
-                        <h3 style={styles.cardTitle}>🧠 Koncepty</h3>
+                        <h3 style={styles.cardTitle}> Koncepty</h3>
                         <div style={styles.tags}>
                             {skills.concepts.map((concept, index) => (
                                 <span key={index} style={styles.tag}>{concept}</span>
@@ -40,7 +40,7 @@ function Skills() {
 
                     {/* Zručnosti - Soft Skills a Jazyky */}
                     <div style={styles.card}>
-                        <h3 style={styles.cardTitle}>🗣️ Ostatné</h3>
+                        <h3 style={styles.cardTitle}> Ostatné</h3>
                         <div style={styles.tags}>
                             {skills.languages.map((lang, index) => (
                                 <span key={`lang-${index}`} style={{...styles.tag, backgroundColor: '#e2e8f0', color: '#333'}}>{lang}</span>
