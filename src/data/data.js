@@ -44,26 +44,14 @@ export const projects = [
         techStack: ["Java", "Git"],
         link: "https://github.com/adam-martonik/budget/"
     },
-    {
-        id: 3,
-        title: "Network Security Audit Tool",
-        description: "Aplikácia pre bezpečnostný audit sietí s integráciou na CIRCL vulnerability API.",
-        techStack: ["Java", "Spring Boot", "Hibernate"],
-        link: "#" // Sem neskôr doplň link
-    },
-    {
-        id: 4,
-        title: "Kakuro Game",
-        description: "Logická hra Kakuro postavená na MVC architektúre s webovým rozhraním.",
-        techStack: ["Java", "Spring Boot", "Thymeleaf"],
-        link: "#" // Sem neskôr doplň link
-    },
+
     {
         id: 5,
         title: "Group Attendance Automation",
-        description: "Nástroj v Pythone na automatizáciu dochádzky s grafickým rozhraním, triedením skupín a evidenciou diétnych požiadaviek.",
+        description: "Nástroj v Pythone na automatizáciu dochádzky s grafickým rozhraním, triedením skupín a evidenciou diétnych požiadaviek. Z dôvodu ochrany osobných údajov je k dispozícii len vizuálna ukážka rozhrania.",
         techStack: ["Python", "CustomTkinter", "Google Sheets"],
-        link: "#" // Sem neskôr doplň link
+        link: "https://github.com/adam-martonik/attendance-automation-showcase",
+        buttonText: "Ukážka rozhrania"
     }
 ];
 

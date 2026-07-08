@@ -19,7 +19,7 @@ function Projects() {
                             </div>
 
                             <a href={project.link} target="_blank" rel="noopener noreferrer" style={styles.link}>
-                                Pozrieť projekt 🔗
+                                {project.buttonText ? project.buttonText : "Pozrieť projekt 🔗"}
                             </a>
                         </div>
                     ))}
