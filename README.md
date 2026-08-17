@@ -20,8 +20,10 @@ Ak si chceš projekt spustiť lokálne, postupuj podľa týchto krokov:
    git clone [https://github.com/adam-martonik/portfolio.git](https://github.com/adam-martonik/portfolio.git)
    cd portfolio
 2. **Dependencies**
+   ```bash
    npm install
    npm install lucide-react framer-motion
    
 3. **Deploy locally**
+   ```bash
    npm run dev
