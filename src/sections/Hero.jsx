@@ -5,8 +5,7 @@ import { Mail, Phone, ChevronDown } from 'lucide-react';
 
 export default function Hero() {
     return (
-        // min-h-screen zaručí, že sekcia zaberie celú výšku obrazovky
-        <section id="about" className="min-h-screen flex flex-col items-center justify-center bg-slate-950 px-6 relative">
+        <section id="about" className="min-h-screen flex flex-col items-center justify-center bg-slate-950 px-6 relative pt-20">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -18,11 +17,11 @@ export default function Hero() {
                 </h1>
 
                 <h2 className="text-2xl md:text-3xl text-slate-400 mb-8 font-medium">
-                    Študent informatiky na TUKE
+                    Študent informatiky na TUKE & vývojár
                 </h2>
 
                 <p className="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed max-w-2xl mx-auto">
-                    {personalInfo.about}
+                    Venujem sa najmä programovaniu a okrem toho aj  aktívne tancujem vo Folklórnom súbore Železiar, hrám futbal a momentálne zbieram skúsenosti aj ako brigádnik v autopožičovni.
                 </p>
 
                 <div className="flex flex-wrap justify-center gap-4">
@@ -35,7 +34,6 @@ export default function Hero() {
                 </div>
             </motion.div>
 
-            {/* Jemne animovaná šípka nabádajúca na scrollovanie dole */}
             <motion.div
                 animate={{ y: [0, 10, 0] }}
                 transition={{ repeat: Infinity, duration: 2 }}

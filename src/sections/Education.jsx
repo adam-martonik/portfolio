@@ -1,19 +1,31 @@
 import React from 'react';
 import { education } from '../data/data';
+import { GraduationCap } from 'lucide-react';
 
-function Education() {
+export default function Education() {
     return (
-        <section style={styles.section} id="education">
-            <div className="container">
-                <h2 style={styles.heading}>Vzdelanie</h2>
-                <div style={styles.list}>
+        <section id="education" className="py-24 bg-slate-950 relative border-t border-slate-800/50">
+            <div className="max-w-4xl mx-auto px-6">
+                <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-50 mb-16">
+                    Vzdelanie
+                </h2>
+                
+                <div className="flex flex-col gap-6">
                     {education.map((edu) => (
-                        <div key={edu.id} style={styles.item}>
-                            <div style={styles.header}>
-                                <h3 style={styles.field}>{edu.field}</h3>
-                                <span style={styles.period}>{edu.period}</span>
+                        <div className="bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-2xl p-6 flex flex-col md:flex-row gap-6 items-start md:items-center hover:border-slate-700 transition-colors" key={edu.id}>
+                            
+                            <div className="w-12 h-12 rounded-xl bg-sky-500/10 flex items-center justify-center flex-shrink-0">
+                                <GraduationCap className="text-sky-500" size={24} />
                             </div>
-                            <p style={styles.school}>{edu.school}</p>
+                            
+                            <div className="flex-grow">
+                                <h3 className="text-xl font-bold text-slate-100 mb-1">{edu.field}</h3>
+                                <p className="text-slate-400">{edu.school}</p>
+                            </div>
+                            
+                            <div className="text-sm font-medium text-slate-300 bg-slate-800 px-4 py-2 rounded-full whitespace-nowrap">
+                                {edu.period}
+                            </div>
                         </div>
                     ))}
                 </div>
@@ -21,16 +33,3 @@ function Education() {
         </section>
     );
 }
-
-const styles = {
-    section: { padding: '80px 0', backgroundColor: '#0B1120' },
-    heading: { fontSize: '2rem', textAlign: 'center', marginBottom: '40px', color: '#f8fafc' },
-    list: { maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '20px' },
-    item: { padding: '20px', borderBottom: '1px solid #1e293b' },
-    header: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', marginBottom: '8px' },
-    field: { fontSize: '1.2rem', color: '#f8fafc', fontWeight: 'bold' },
-    period: { fontSize: '0.9rem', color: '#94a3b8' },
-    school: { fontSize: '1rem', color: '#cbd5e1' }
-};
-
-export default Education;

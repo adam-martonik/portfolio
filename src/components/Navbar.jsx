@@ -1,51 +1,55 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { Menu, X } from 'lucide-react';
 
-function Navbar() {
+export default function Navbar() {
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 20);
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    const navLinks = [
+        { name: 'O mne', href: '#about' },
+        { name: 'Projekty', href: '#projects' },
+    ];
+
     return (
-        <nav style={styles.nav}>
-            <div style={styles.logo}>
-                Adam<span style={{ color: '#38bdf8' }}>Martonik</span>
+        <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-slate-950/80 backdrop-blur-md border-b border-slate-800 py-3' : 'bg-transparent py-5'}`}>
+            <div className="max-w-6xl mx-auto px-6 flex justify-between items-center">
+                <a href="#" className="text-xl font-bold text-slate-50 hover:text-sky-400 transition-colors">
+                    AM<span className="text-sky-500">.</span>
+                </a>
+
+                {/* Desktop Menu */}
+                <div className="hidden md:flex gap-8">
+                    {navLinks.map((link) => (
+                        <a key={link.name} href={link.href} className="text-sm font-medium text-slate-300 hover:text-sky-400 transition-colors">
+                            {link.name}
+                        </a>
+                    ))}
+                </div>
+
+                {/* Mobile Menu Button */}
+                <button className="md:hidden text-slate-300" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+                    {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                </button>
             </div>
-            <div style={styles.links}>
-                <a href="#about" style={styles.link}>O mne</a>
-                <a href="#skills" style={styles.link}>Zručnosti</a>
-                <a href="#projects" style={styles.link}>Projekty</a>
-                <a href="#experience" style={styles.link}>Skúsenosti</a>
-                <a href="#education" style={styles.link}>Vzdelanie</a>
-            </div>
+
+            {/* Mobile Menu */}
+            {isMobileMenuOpen && (
+                <div className="md:hidden absolute top-full left-0 w-full bg-slate-900 border-b border-slate-800 py-4 px-6 flex flex-col gap-4 shadow-xl">
+                    {navLinks.map((link) => (
+                        <a key={link.name} href={link.href} onClick={() => setIsMobileMenuOpen(false)} className="text-slate-300 font-medium hover:text-sky-400">
+                            {link.name}
+                        </a>
+                    ))}
+                </div>
+            )}
         </nav>
     );
 }
-
-const styles = {
-    nav: {
-        position: 'sticky',
-        top: 0,
-        backgroundColor: 'rgba(11, 17, 32, 0.85)',
-        backdropFilter: 'blur(10px)',
-        borderBottom: '1px solid #1e293b',
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '15px 40px',
-        zIndex: 1000
-    },
-    logo: {
-        fontSize: '1.5rem',
-        fontWeight: 'bold',
-        color: '#f8fafc'
-    },
-    links: {
-        display: 'flex',
-        gap: '20px'
-    },
-    link: {
-        color: '#e2e8f0',
-        textDecoration: 'none',
-        fontSize: '1rem',
-        fontWeight: '500',
-        transition: 'color 0.2s',
-    }
-};
-
-export default Navbar;

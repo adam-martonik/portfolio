@@ -1,24 +1,19 @@
+import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './sections/Hero';
-import Skills from './sections/Skills';
 import Projects from './sections/Projects';
-import Experience from './sections/Experience';
-import Education from './sections/Education';
 
 function App() {
     return (
-        <div>
+        <div className="bg-slate-950 min-h-screen text-slate-50 font-sans selection:bg-sky-500/30">
             <Navbar />
             <main>
                 <Hero />
-                <Skills />
                 <Projects />
-                <Experience />
-                <Education />
             </main>
 
-            <footer style={{ textAlign: 'center', padding: '30px', backgroundColor: '#0B1120', color: '#94a3b8', borderTop: '1px solid #1e293b' }}>
-                <p>© 2026 Adam Martonik. Vytvorené v Reacte.</p>
+            <footer className="text-center py-8 bg-slate-950 text-slate-500 border-t border-slate-800">
+                <p>© 2026 Adam Martonik. Vytvorené v Reacte & Tailwind CSS.</p>
             </footer>
         </div>
     );

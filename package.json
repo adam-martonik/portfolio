@@ -13,6 +13,9 @@
     "deploy": "gh-pages -d dist --repo https://github.com/adam-martonik/portfolio.git"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "framer-motion": "^13.1.0",
+    "lucide-react": "^1.31.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -20,8 +23,11 @@
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@vitejs/plugin-react": "^4.0.3",
+    "autoprefixer": "^10.5.4",
     "eslint": "^8.45.0",
     "gh-pages": "^6.1.1",
+    "postcss": "^8.5.26",
+    "tailwindcss": "^4.3.3",
     "vite": "^8.1.3"
   }
 }

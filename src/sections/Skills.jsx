@@ -1,52 +1,51 @@
 import React from 'react';
 import { skills } from '../data/data';
 
-function Skills() {
+export default function Skills() {
     return (
-        <section style={styles.section} id="skills">
-            <div className="container">
-                <h2 style={styles.heading}>Moje zručnosti</h2>
-                <div style={styles.grid}>
-
-                    {/* Zručnosti - Programovanie */}
-                    <div style={styles.card}>
-                        <h3 style={styles.cardTitle}> Programovanie</h3>
-                        <div style={styles.tags}>
-                            {skills.programming.map((skill, index) => (
-                                <span key={index} style={styles.tag}>{skill}</span>
+        <section id="skills" className="py-24 bg-slate-950 relative border-t border-slate-800/50">
+            <div className="max-w-6xl mx-auto px-6">
+                <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-50 mb-16">
+                    Moje zručnosti
+                </h2>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    
+                    <div className="bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-2xl p-6 hover:border-slate-600 transition-colors">
+                        <h3 className="text-lg font-bold text-slate-200 mb-6 border-b border-slate-700/50 pb-3">Programovanie</h3>
+                        <div className="flex flex-wrap gap-2">
+                            {skills.programming?.map((skill, index) => (
+                                <span key={index} className="px-3 py-1.5 bg-sky-500/10 text-sky-400 rounded-lg text-sm font-medium border border-sky-500/20">{skill}</span>
                             ))}
                         </div>
                     </div>
 
-                    {/* Zručnosti - Technológie */}
-                    <div style={styles.card}>
-                        <h3 style={styles.cardTitle}> Technológie</h3>
-                        <div style={styles.tags}>
-                            {skills.technologies.map((tech, index) => (
-                                <span key={index} style={styles.tag}>{tech}</span>
+                    <div className="bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-2xl p-6 hover:border-slate-600 transition-colors">
+                        <h3 className="text-lg font-bold text-slate-200 mb-6 border-b border-slate-700/50 pb-3">Technológie</h3>
+                        <div className="flex flex-wrap gap-2">
+                            {skills.technologies?.map((tech, index) => (
+                                <span key={index} className="px-3 py-1.5 bg-sky-500/10 text-sky-400 rounded-lg text-sm font-medium border border-sky-500/20">{tech}</span>
                             ))}
                         </div>
                     </div>
 
-                    {/* Zručnosti - Koncepty */}
-                    <div style={styles.card}>
-                        <h3 style={styles.cardTitle}> Koncepty</h3>
-                        <div style={styles.tags}>
-                            {skills.concepts.map((concept, index) => (
-                                <span key={index} style={styles.tag}>{concept}</span>
+                    <div className="bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-2xl p-6 hover:border-slate-600 transition-colors">
+                        <h3 className="text-lg font-bold text-slate-200 mb-6 border-b border-slate-700/50 pb-3">Koncepty</h3>
+                        <div className="flex flex-wrap gap-2">
+                            {skills.concepts?.map((concept, index) => (
+                                <span key={index} className="px-3 py-1.5 bg-sky-500/10 text-sky-400 rounded-lg text-sm font-medium border border-sky-500/20">{concept}</span>
                             ))}
                         </div>
                     </div>
 
-                    {/* Zručnosti - Soft Skills a Jazyky */}
-                    <div style={styles.card}>
-                        <h3 style={styles.cardTitle}> Ostatné</h3>
-                        <div style={styles.tags}>
-                            {skills.languages.map((lang, index) => (
-                                <span key={`lang-${index}`} style={{...styles.tag, backgroundColor: '#e2e8f0', color: '#333'}}>{lang}</span>
+                    <div className="bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-2xl p-6 hover:border-slate-600 transition-colors">
+                        <h3 className="text-lg font-bold text-slate-200 mb-6 border-b border-slate-700/50 pb-3">Ostatné</h3>
+                        <div className="flex flex-wrap gap-2">
+                            {skills.languages?.map((lang, index) => (
+                                <span key={`lang-${index}`} className="px-3 py-1.5 bg-slate-800 text-slate-300 rounded-lg text-sm font-medium border border-slate-700">{lang}</span>
                             ))}
-                            {skills.softSkills.map((skill, index) => (
-                                <span key={`soft-${index}`} style={{...styles.tag, backgroundColor: '#e2e8f0', color: '#333'}}>{skill}</span>
+                            {skills.softSkills?.map((skill, index) => (
+                                <span key={`soft-${index}`} className="px-3 py-1.5 bg-slate-800 text-slate-300 rounded-lg text-sm font-medium border border-slate-700">{skill}</span>
                             ))}
                         </div>
                     </div>
@@ -56,15 +55,3 @@ function Skills() {
         </section>
     );
 }
-
-const styles = {
-    section: { padding: '80px 0', backgroundColor: '#0f172a' },
-    heading: { fontSize: '2rem', textAlign: 'center', marginBottom: '40px', color: '#f8fafc' },
-    grid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '20px' },
-    card: { backgroundColor: '#1e293b', padding: '20px', borderRadius: '8px', border: '1px solid #334155' },
-    cardTitle: { fontSize: '1.2rem', marginBottom: '15px', color: '#f8fafc', borderBottom: '2px solid #334155', paddingBottom: '10px' },
-    tags: { display: 'flex', flexWrap: 'wrap', gap: '10px' },
-    tag: { padding: '5px 12px', backgroundColor: '#0ea5e9', color: '#ffffff', borderRadius: '20px', fontSize: '0.9rem', fontWeight: '600' }
-};
-
-export default Skills;

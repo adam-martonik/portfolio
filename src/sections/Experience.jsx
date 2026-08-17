@@ -1,24 +1,46 @@
 import React from 'react';
 import { experience } from '../data/data';
+import { Briefcase } from 'lucide-react';
 
-function Experience() {
+export default function Experience() {
     return (
-        <section style={styles.section} id="experience">
-            <div className="container">
-                <h2 style={styles.heading}>Pracovné skúsenosti</h2>
-                <div style={styles.list}>
+        <section id="experience" className="py-24 bg-slate-900 relative border-t border-slate-800/50">
+            <div className="max-w-4xl mx-auto px-6">
+                <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-50 mb-16">
+                    Pracovné skúsenosti
+                </h2>
+                
+                <div className="flex flex-col gap-8">
                     {experience.map((job) => (
-                        <div key={job.id} style={styles.item}>
-                            <div style={styles.header}>
-                                <h3 style={styles.title}>{job.title}</h3>
-                                <span style={styles.period}>{job.period}</span>
+                        <div key={job.id} className="relative pl-8 md:pl-0">
+                            
+                            {/* Timeline Line pre Desktop */}
+                            <div className="hidden md:block absolute left-[50%] top-0 bottom-0 w-px bg-slate-800 -translate-x-1/2"></div>
+                            
+                            <div className={`md:flex items-center justify-between w-full ${job.id % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
+                                
+                                {/* Timeline icon */}
+                                <div className="absolute left-0 md:left-1/2 w-8 h-8 rounded-full bg-slate-800 border-4 border-slate-900 flex items-center justify-center -translate-x-1/2 md:translate-x-[-50%] mt-1 md:mt-0 z-10">
+                                    <Briefcase size={14} className="text-sky-500" />
+                                </div>
+
+                                {/* Content Card */}
+                                <div className="md:w-[45%] bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 hover:border-sky-500/30 transition-colors">
+                                    <div className="flex flex-col mb-4">
+                                        <span className="text-sm font-medium text-sky-400 bg-sky-500/10 px-3 py-1 rounded-full w-fit mb-3">
+                                            {job.period}
+                                        </span>
+                                        <h3 className="text-xl font-bold text-slate-100">{job.title}</h3>
+                                        <h4 className="text-slate-400 font-medium">{job.company}</h4>
+                                    </div>
+                                    
+                                    <ul className="list-disc pl-5 space-y-2 text-slate-300">
+                                        {job.tasks.map((task, index) => (
+                                            <li key={index} className="leading-relaxed">{task}</li>
+                                        ))}
+                                    </ul>
+                                </div>
                             </div>
-                            <h4 style={styles.company}>{job.company}</h4>
-                            <ul style={styles.tasks}>
-                                {job.tasks.map((task, index) => (
-                                    <li key={index} style={styles.taskItem}>{task}</li>
-                                ))}
-                            </ul>
                         </div>
                     ))}
                 </div>
@@ -26,18 +48,3 @@ function Experience() {
         </section>
     );
 }
-
-const styles = {
-    section: { padding: '80px 0', backgroundColor: '#0f172a' },
-    heading: { fontSize: '2rem', textAlign: 'center', marginBottom: '40px', color: '#f8fafc' },
-    list: { maxWidth: '800px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '30px' },
-    item: { backgroundColor: '#0B1120', padding: '25px', borderRadius: '8px', borderLeft: '4px solid #38bdf8', border: '1px solid #1e293b', borderLeftWidth: '4px' },
-    header: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', marginBottom: '5px' },
-    title: { fontSize: '1.3rem', color: '#f8fafc' },
-    period: { fontSize: '0.95rem', color: '#94a3b8', backgroundColor: '#1e293b', padding: '4px 10px', borderRadius: '15px' },
-    company: { fontSize: '1.1rem', color: '#38bdf8', marginBottom: '15px', fontWeight: '500' },
-    tasks: { listStyleType: 'disc', paddingLeft: '20px', color: '#cbd5e1' },
-    taskItem: { marginBottom: '5px' }
-};
-
-export default Experience;

@@ -32,26 +32,35 @@ export const skills = {
 export const projects = [
     {
         id: 1,
-        title: "Self-Diagnostic Kiosk Interface",
-        description: "Webová aplikácia vytvorená na hackathone Hack jak Brno.",
-        techStack: ["JavaScript", "HTML/CSS", "Git"],
-        link: "https://self-diagnostics-u2hg.onrender.com/"
+        title: "Group Attendance Automation",
+        description: "Desktopová aplikácia na spracovanie dochádzky a stravovacích požiadaviek väčších skupín, ktorá nahradila manuálne spracovanie v tabuľkách. Integruje parsovanie dát z Google Sheets API vrátane filtrovania chýbnych záznamov.",
+        techStack: ["Python", "CustomTkinter", "Google Sheets API"],
+        link: "https://github.com/adam-martonik/attendance-automation-showcase",
+        buttonText: "GitHub 🔗"
     },
     {
         id: 2,
-        title: "Budget Planner",
-        description: "Java aplikácia pre plánovanie financií.",
-        techStack: ["Java", "Git"],
-        link: "https://github.com/adam-martonik/budget/"
+        title: "Job Alert Scraper",
+        description: "Skript, ktorý denne prehľadáva profesia.sk a posiela HTML súhrn nových študentských a junior pozícií na e-mail. Implementuje filtrovanie podľa kľúčových slov, sledovanie firiem a deduplikáciu cez perzistentný JSON stav bez ukladania credentials v kóde.",
+        techStack: ["Python", "Requests", "BeautifulSoup", "SMTP"],
+        link: "https://github.com/adam-martonik/email_jobs",
+        buttonText: "GitHub 🔗"
     },
-
     {
-        id: 5,
-        title: "Group Attendance Automation",
-        description: "Nástroj v Pythone na automatizáciu dochádzky s grafickým rozhraním, triedením skupín a evidenciou diétnych požiadaviek. Z dôvodu ochrany osobných údajov je k dispozícii len vizuálna ukážka rozhrania.",
-        techStack: ["Python", "CustomTkinter", "Google Sheets"],
-        link: "https://github.com/adam-martonik/attendance-automation-showcase",
-        buttonText: "Ukážka rozhrania"
+        id: 3,
+        title: "Budget Planner",
+        description: "Desktopová aplikácia na správu osobných financií v čistej Jave bez externých knižníc. Využíva čistý dátový model oddelený od UI vrstvy a ukladanie dát cez Java serializáciu.",
+        techStack: ["Java", "Gradle"],
+        link: "https://github.com/adam-martonik/budget",
+        buttonText: "GitHub 🔗"
+    },
+    {
+        id: 4,
+        title: "Self-Diagnostic Kiosk (Hack jak Brno)",
+        description: "Prototyp samoobslužného diagnostického kiosku pre lekárne – od identifikácie pacienta po doručenie výsledkov. Obsahuje Flask backend s REST API pre zariadenie, generovanie PDF a mock integrácie.",
+        techStack: ["Python", "Flask", "JavaScript", "REST API"],
+        link: "https://self-diagnostics-u2hg.onrender.com/",
+        buttonText: "Pozrieť web 🔗"
     }
 ];
 
