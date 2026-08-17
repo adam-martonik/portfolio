@@ -1,25 +1,40 @@
 import React from 'react';
 import { projects } from '../data/data';
+import { ExternalLink } from 'lucide-react';
 
-function Projects() {
+export default function Projects() {
     return (
-        <section style={styles.section} id="projects">
-            <div className="container">
-                <h2 style={styles.heading}>Projekty</h2>
-                <div style={styles.grid}>
-                    {projects.map((project) => (
-                        <div key={project.id} style={styles.card}>
-                            <h3 style={styles.projectTitle}>{project.title}</h3>
-                            <p style={styles.description}>{project.description}</p>
+        <section id="projects" className="py-24 bg-slate-900">
+            <div className="max-w-6xl mx-auto px-6">
+                <h2 className="text-3xl md:text-4xl font-bold text-center text-slate-50 mb-16">
+                    Projekty
+                </h2>
 
-                            <div style={styles.techStack}>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {projects.map((project) => (
+                        <div key={project.id} className="bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 hover:-translate-y-2 hover:border-sky-500/30 hover:shadow-xl hover:shadow-sky-500/10 transition-all duration-300 flex flex-col group">
+
+                            <h3 className="text-xl font-bold text-slate-50 mb-3 group-hover:text-sky-400 transition-colors">
+                                {project.title}
+                            </h3>
+
+                            <p className="text-slate-400 mb-6 flex-grow leading-relaxed">
+                                {project.description}
+                            </p>
+
+                            {/* Tagy s technológiami */}
+                            <div className="flex flex-wrap gap-2 mb-8">
                                 {project.techStack.map((tech, index) => (
-                                    <span key={index} style={styles.techTag}>{tech}</span>
+                                    <span key={index} className="px-3 py-1 bg-slate-950/50 text-sky-400 rounded-full text-xs font-medium border border-slate-700/50">
+                                        {tech}
+                                    </span>
                                 ))}
                             </div>
 
-                            <a href={project.link} target="_blank" rel="noopener noreferrer" style={styles.link}>
-                                {project.buttonText ? project.buttonText : "Pozrieť projekt 🔗"}
+                            {/* Moderné tlačidlo namiesto čistého textového linku */}
+                            <a href={project.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 w-full py-3 bg-slate-700/30 hover:bg-sky-500 hover:text-slate-950 text-slate-300 rounded-xl transition-all font-semibold">
+                                {project.buttonText ? project.buttonText : "Pozrieť projekt"}
+                                <ExternalLink size={18} />
                             </a>
                         </div>
                     ))}
@@ -28,17 +43,3 @@ function Projects() {
         </section>
     );
 }
-
-const styles = {
-    section: { padding: '80px 0', backgroundColor: '#0B1120' },
-    heading: { fontSize: '2rem', textAlign: 'center', marginBottom: '40px', color: '#f8fafc' },
-    grid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '30px' },
-    card: { backgroundColor: '#0f172a', border: '1px solid #1e293b', padding: '25px', borderRadius: '8px', display: 'flex', flexDirection: 'column' },
-    projectTitle: { fontSize: '1.4rem', marginBottom: '10px', color: '#f8fafc' },
-    description: { color: '#94a3b8', marginBottom: '20px', flexGrow: 1 },
-    techStack: { display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '20px' },
-    techTag: { padding: '4px 10px', backgroundColor: '#1e293b', color: '#38bdf8', borderRadius: '4px', fontSize: '0.85rem', fontWeight: '500' },
-    link: { display: 'inline-block', padding: '8px 16px', backgroundColor: '#38bdf8', color: '#0B1120', textDecoration: 'none', borderRadius: '5px', textAlign: 'center', fontWeight: 'bold' }
-};
-
-export default Projects;

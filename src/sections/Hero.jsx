@@ -1,35 +1,48 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { personalInfo } from '../data/data';
+import { Mail, Phone, ChevronDown } from 'lucide-react';
 
-function Hero() {
+export default function Hero() {
     return (
-        <section style={styles.section} id="about">
-            <div className="container" style={styles.container}>
-                <h1 style={styles.heading}>Ahoj, som {personalInfo.name} 👋</h1>
-                <h2 style={styles.subheading}>Študent informatiky</h2>
-                <p style={styles.bio}>{personalInfo.about}</p>
+        // min-h-screen zaručí, že sekcia zaberie celú výšku obrazovky
+        <section id="about" className="min-h-screen flex flex-col items-center justify-center bg-slate-950 px-6 relative">
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7 }}
+                className="text-center max-w-3xl"
+            >
+                <h1 className="text-5xl md:text-7xl font-extrabold text-slate-50 mb-6 tracking-tight">
+                    Ahoj, som <span className="text-sky-400">{personalInfo.name}</span>
+                </h1>
 
-                <div style={styles.contact}>
-                    <a href={`mailto:${personalInfo.email}`} style={styles.link}>
-                         Napíš mi
+                <h2 className="text-2xl md:text-3xl text-slate-400 mb-8 font-medium">
+                    Študent informatiky na TUKE
+                </h2>
+
+                <p className="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed max-w-2xl mx-auto">
+                    {personalInfo.about}
+                </p>
+
+                <div className="flex flex-wrap justify-center gap-4">
+                    <a href={`mailto:${personalInfo.email}`} className="flex items-center gap-2 px-6 py-3 bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold rounded-xl transition-all hover:-translate-y-1 hover:shadow-lg hover:shadow-sky-500/25">
+                        <Mail size={20} /> Napíš mi
                     </a>
-                    <a href={`tel:${personalInfo.phone}`} style={styles.link}>
-                         {personalInfo.phone}
+                    <a href={`tel:${personalInfo.phone}`} className="flex items-center gap-2 px-6 py-3 bg-slate-800 hover:bg-slate-700 text-slate-50 border border-slate-700 font-medium rounded-xl transition-all hover:-translate-y-1">
+                        <Phone size={20} /> {personalInfo.phone}
                     </a>
                 </div>
-            </div>
+            </motion.div>
+
+            {/* Jemne animovaná šípka nabádajúca na scrollovanie dole */}
+            <motion.div
+                animate={{ y: [0, 10, 0] }}
+                transition={{ repeat: Infinity, duration: 2 }}
+                className="absolute bottom-10 text-slate-500"
+            >
+                <ChevronDown size={32} />
+            </motion.div>
         </section>
     );
 }
-
-// Jednoduché štýlovanie priamo v komponente pre rýchly štart
-const styles = {
-    section: { padding: '120px 0 80px', backgroundColor: '#0B1120', borderBottom: '1px solid #1e293b' },
-    container: { textAlign: 'center', maxWidth: '800px' },
-    heading: { fontSize: '3.5rem', marginBottom: '10px', color: '#f8fafc' },
-    subheading: { fontSize: '1.5rem', color: '#38bdf8', marginBottom: '20px', fontWeight: 'normal' },
-    bio: { fontSize: '1.1rem', color: '#94a3b8', marginBottom: '30px' },
-    contact: { display: 'flex', justifyContent: 'center', gap: '20px' },
-    link: { padding: '10px 20px', backgroundColor: '#38bdf8', color: '#0B1120', textDecoration: 'none', borderRadius: '5px', fontWeight: 'bold' }
-};
-export default Hero;
