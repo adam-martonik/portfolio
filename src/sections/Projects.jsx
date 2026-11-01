@@ -35,7 +35,7 @@ export default function Projects() {
                 <div className="flex justify-center mb-14">
                     <div className="p-1.5 rounded-2xl bg-slate-900/90 border border-slate-800 backdrop-blur-md inline-flex items-center gap-1 shadow-lg">
                         <button
-                            onClick={() => setShowOnlyHighlighted(true)}
+                            onClick={() => setShowOnlyHighlighted(true)} aria-pressed={showOnlyHighlighted}
                             className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs md:text-sm font-bold transition-all cursor-pointer ${
                                 showOnlyHighlighted
                                     ? 'bg-sky-500 text-slate-950 shadow-md shadow-sky-500/30'
@@ -46,7 +46,7 @@ export default function Projects() {
                             <span>Výber (2 najlepšie)</span>
                         </button>
                         <button
-                            onClick={() => setShowOnlyHighlighted(false)}
+                            onClick={() => setShowOnlyHighlighted(false)} aria-pressed={!showOnlyHighlighted}
                             className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs md:text-sm font-semibold transition-all cursor-pointer ${
                                 !showOnlyHighlighted
                                     ? 'bg-sky-500 text-slate-950 shadow-md shadow-sky-500/30'
@@ -137,7 +137,7 @@ export default function Projects() {
                                     <a
                                         href={project.link}
                                         target="_blank"
-                                        rel="noopener noreferrer"
+                                        rel="noopener noreferrer" aria-label={`${project.title} - ${project.buttonText || "Pozriet projekt"}`}
                                         className={`inline-flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-bold transition-all ${
                                             project.highlighted
                                                 ? 'bg-sky-500 hover:bg-sky-400 text-slate-950 shadow-md shadow-sky-500/25 hover:shadow-sky-500/40'

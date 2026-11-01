@@ -11,7 +11,7 @@ export default function Navbar() {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 20);
         };
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
@@ -77,7 +77,7 @@ export default function Navbar() {
                 <button
                     className="md:hidden text-slate-300 hover:text-sky-400 p-2 rounded-xl"
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                    aria-label="Toggle menu"
+                    aria-label="Toggle menu" aria-expanded={isMobileMenuOpen} aria-controls="mobile-menu"
                 >
                     {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
                 </button>
@@ -85,7 +85,7 @@ export default function Navbar() {
 
             {/* Mobile Menu Dropdown */}
             {isMobileMenuOpen && (
-                <div className="md:hidden bg-slate-950/95 backdrop-blur-xl border-b border-slate-800 py-5 px-6 flex flex-col gap-4 shadow-2xl animate-in slide-in-from-top-4 duration-200">
+                <div id="mobile-menu" className="md:hidden bg-slate-950/95 backdrop-blur-xl border-b border-slate-800 py-5 px-6 flex flex-col gap-4 shadow-2xl animate-in slide-in-from-top-4 duration-200">
                     {navLinks.map((link) => (
                         <a
                             key={link.name}
