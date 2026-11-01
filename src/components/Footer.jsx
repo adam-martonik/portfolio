@@ -1,6 +1,6 @@
 import React from 'react';
 import { personalInfo } from '../data/data';
-import { Mail, ArrowUp } from 'lucide-react';
+import { Mail, Phone, ArrowUp, Send } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './Icons';
 
 export default function Footer() {
@@ -9,56 +9,67 @@ export default function Footer() {
     };
 
     return (
-        <footer className="bg-slate-950 border-t border-slate-800/80 py-12 px-6">
-            <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-                <div className="text-center md:text-left">
-                    <p className="text-slate-200 font-bold text-lg mb-1">
-                        {personalInfo.name}
-                    </p>
-                    <p className="text-slate-400 text-xs md:text-sm">
-                        Junior Software Engineer & Študent informatiky na TUKE
-                    </p>
+        <footer id="contact" className="bg-slate-950 border-t border-slate-800/80 py-16 px-6 relative">
+            <div className="max-w-4xl mx-auto text-center mb-12">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-xs font-semibold text-sky-400 mb-4">
+                    <Send size={13} /> Spojme sa
                 </div>
+                <h2 className="text-3xl md:text-4xl font-extrabold text-slate-100 mb-4">
+                    Hľadáte šikovného vývojára do tímu?
+                </h2>
+                <p className="text-slate-400 text-sm md:text-base max-w-xl mx-auto mb-8">
+                    Som otvorený zaujímavým projektom, stážam a junior príležitostiam v IT sfére. Ozvite sa mi priamo na e-mail alebo telefón.
+                </p>
 
-                <div className="flex items-center gap-4">
+                <div className="flex flex-wrap justify-center gap-4">
+                    <a
+                        href={`mailto:${personalInfo.email}`}
+                        className="inline-flex items-center gap-2.5 px-6 py-3.5 bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold rounded-xl transition-all shadow-lg shadow-sky-500/25 hover:-translate-y-0.5 text-sm md:text-base"
+                    >
+                        <Mail size={18} /> {personalInfo.email}
+                    </a>
+                    <a
+                        href={`tel:${personalInfo.phone.replace(/\s+/g, '')}`}
+                        className="inline-flex items-center gap-2.5 px-6 py-3.5 bg-slate-900 hover:bg-slate-800 text-slate-200 border border-slate-800 font-semibold rounded-xl transition-all hover:-translate-y-0.5 text-sm md:text-base"
+                    >
+                        <Phone size={18} /> {personalInfo.phone}
+                    </a>
+                </div>
+            </div>
+
+            <div className="max-w-6xl mx-auto pt-8 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400">
+                <p>
+                    © {new Date().getFullYear()} {personalInfo.name} ({personalInfo.fullName}). Vytvorené v Reacte & Tailwind CSS.
+                </p>
+
+                <div className="flex items-center gap-3">
                     <a
                         href={personalInfo.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-slate-100 hover:border-slate-700 transition-all"
+                        className="p-2 text-slate-400 hover:text-slate-100 transition-colors"
                         aria-label="GitHub"
                     >
-                        <GithubIcon size={18} />
+                        <GithubIcon size={17} />
                     </a>
                     <a
                         href={personalInfo.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-sky-400 hover:border-slate-700 transition-all"
+                        className="p-2 text-slate-400 hover:text-sky-400 transition-colors"
                         aria-label="LinkedIn"
                     >
-                        <LinkedinIcon size={18} />
-                    </a>
-                    <a
-                        href={`mailto:${personalInfo.email}`}
-                        className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-sky-400 hover:border-slate-700 transition-all"
-                        aria-label="Email"
-                    >
-                        <Mail size={18} />
+                        <LinkedinIcon size={17} />
                     </a>
                     <button
                         onClick={scrollToTop}
-                        className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-sky-400 hover:border-slate-700 transition-all cursor-pointer"
-                        aria-label="Hore"
-                        title="Naspäť hore"
+                        className="p-2 text-slate-400 hover:text-sky-400 transition-colors cursor-pointer"
+                        title="Hore"
+                        aria-label="Návrat na vrch"
                     >
-                        <ArrowUp size={18} />
+                        <ArrowUp size={17} />
                     </button>
                 </div>
-            </div>
-
-            <div className="max-w-6xl mx-auto mt-8 pt-6 border-t border-slate-900 text-center text-xs text-slate-400">
-                <p>© {new Date().getFullYear()} Adam Martoník. Postavené v React 18, Tailwind CSS, Vite & Framer Motion.</p>
             </div>
         </footer>
     );
