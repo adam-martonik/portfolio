@@ -27,7 +27,7 @@ Ahoj! Som **Martoník**, študent informatiky na **Technickej univerzite v Koši
 
 ## ⭐ Hlavné softvérové projekty (Top Highlighty)
 
-### 1. [KlubManager SaaS](https://github.com/adam-martonik/app_for_groups) — Multi-tenant platforma pre kluby a súbory
+### 1. [KlubManager SaaS](https://github.com/adam-martonik/klubmanager-showcase) — Multi-tenant platforma pre kluby a súbory
 * **Stack:** `Java 21`, `Spring Boot 3.4`, `React 18`, `TypeScript`, `PostgreSQL`, `Docker Compose`, `PWA`
 * **Kľúčové vlastnosti:**
   - Multi-tenancy v PostgreSQL s izoláciou dát na úrovni databázy cez Hibernate 6 `@TenantId`.

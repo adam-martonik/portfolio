@@ -30,7 +30,7 @@ export const projects = [
         subtitle: "Multi-tenant platforma pre kluby a súbory",
         description: "Multi-tenant mikro-SaaS platforma s dátovou izoláciou v PostgreSQL cez Hibernate 6 @TenantId, bezstavovou JWT autentifikáciou (Spring Security 6), vlastnou binárnou implementáciou slovenského Pay by Square (SBA LZMA/Base32Hex/ZXing), automatickým párovaním SEPA CAMT.053 XML bankových výpisov a offline PWA dochádzkou.",
         techStack: ["Java 21", "Spring Boot 3.4", "React 18", "TypeScript", "PostgreSQL", "Docker Compose", "PWA"],
-        link: "https://github.com/adam-martonik/app_for_groups",
+        link: "https://github.com/adam-martonik/klubmanager-showcase",
         buttonText: "GitHub repozitár",
         highlighted: true
     },
