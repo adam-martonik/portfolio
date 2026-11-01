@@ -1,5 +1,5 @@
 export const personalInfo = {
-    name: "Adam Martoník",
+    name: "Adam Martonik",
     role: "Junior Software Engineer",
     status: "Otvorený pre stáže a junior príležitosti",
     email: "work.martonik@gmail.com",
